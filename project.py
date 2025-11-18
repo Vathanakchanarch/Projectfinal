@@ -11,4 +11,9 @@ display_banner()
 
 dfafhafafjdfakjlf
 dsfaffhdassfkhdfahl
+<<<<<<< HEAD
+print("Hello world")
+=======
+#fdfa;fdafhofjddfawjf;fj
+>>>>>>> a7f72918b2a14386018ef8a46c6dc30e7135c7ce
 print("Hello world")
