@@ -11,3 +11,4 @@ display_banner()
 
 dfafhafafjdfakjlf
 dsfaffhdassfkhdfahl
+print("Hello world")
