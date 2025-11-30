@@ -1,13 +1,14 @@
 from tkinter import *
 from PIL import Image, ImageTk
 
+
 window = Tk()
 window.title("Conronavirus") # set title 
 window.geometry("900x500") #set size
 
 # window.minsize()
 # window.maxsize()
-winframe= Frame(window,width="900",height="500",bg="white")
+winframe= Frame(window,width="180",height="500",bg="gray",borderwidth=1)
 winframe.pack()
 winframe.pack_propagate(0)
 def homepage():
@@ -18,9 +19,10 @@ def homepage():
 
     homeButtomImg = ImageTk.PhotoImage(img)
 
-    homeButton = Label(winframe, image=homeButtomImg, bg="white",cursor="hand2")
+    homeButton = Label(winframe, image=homeButtomImg, bg="blue",cursor="hand2")
+   
     homeButton.place(x=10, y=50)
-
+    
 def scanpage():
     global scanButtomImg
     
@@ -29,7 +31,7 @@ def scanpage():
 
     scanButtomImg = ImageTk.PhotoImage(img)
 
-    scanbutton = Label(winframe, image=scanButtomImg, bg="white",cursor="hand2")
+    scanbutton = Label(winframe, image=scanButtomImg, bg="blue",cursor="hand2")
     scanbutton.place(x=10, y=100)
 
 homepage()
