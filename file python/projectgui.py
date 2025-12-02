@@ -8,6 +8,3 @@ window.geometry("900x500") #set size
 
 
 window.mainloop()
-print("Hello world")
-Fhffadfhfjff
-hello channel welcome to my guy
