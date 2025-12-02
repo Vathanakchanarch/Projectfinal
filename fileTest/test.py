@@ -138,3 +138,13 @@ scanner = SimpleScanner(scan_path)
 
 # Start scanning
 scanner.scan()
+# B=C.get_fileHash(r"D:\Y2\T1\PYTHON FOR CYBER\project\fileTest\keylogger.zip")
+# z=C.check_filevirus(r"D:\Y2\T1\PYTHON FOR CYBER\project\fileTest\keylogger.zip")
+# print(z)
+
+# G=scanner(r"D:\Y2\T1\PYTHON FOR CYBER\project\fileTest\keylogger.zip")
+# M=G.scan()
+# print(M)
+
+# W=Quanrantine(r"D:\Y2\T1\PYTHON FOR CYBER\project\TestQuanratin")
+# W.Movefile(r"D:\Y2\T1\PYTHON FOR CYBER\project\TestQuanratin")
