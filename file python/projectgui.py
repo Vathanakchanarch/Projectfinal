@@ -2,7 +2,7 @@ from tkinter import *
 
 
 window = Tk()
-window.title("Conronavirus") # set title 
+window.title("Threat Hunter") # set title 
 window.geometry("900x500") #set size
 
 
