@@ -7,13 +7,6 @@ class security:
     def hashes_password(self, pwd):
         return hashlib.sha256(pwd.encode()).hexdigest()
 
-    def DatabaseUser(self):
-        with open(self.User, 'r') as u:
-            User = [line.strip() for line in u.readlines() if line.strip()]
-        with open(self.Password, 'r') as p:
-            Password = [line.strip() for line in p.readlines() if line.strip()]
-        return User, Password
-
     def verify(self):
         pwd = input("Please Enter your password: ").strip()
         User, Password = self.DatabaseUser()
@@ -27,8 +20,3 @@ class security:
 
 
 
-# E = security()
-# Z, G = E.DatabaseUser()
-# print(G)         
-# result = E.verify()
-# print(result)

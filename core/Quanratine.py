@@ -2,11 +2,11 @@ import os
 import shutil
 import zipfile
 from core.setting import MalwareDetection
-
 class Quanrantine(MalwareDetection):
-    def __init__(self,path):
+    def __init__(self,path,password='12345'):
         super().__init__(path)
-        self.toQuanrantine=r"D:\Y2\T1\PYTHON FOR CYBER\Projectstruct\Quarantine.zip"
+        self.toQuanrantine=r"D:\Y2\T1\PYTHON FOR CYBER\project\Quarantine.zip"
+        self.password=password.encode()
     def Movefile(self):
         Malware=self.check_folder(self.path)
         for i in Malware:
@@ -15,6 +15,7 @@ class Quanrantine(MalwareDetection):
                 try:
                     if key=='path':
                         with zipfile.ZipFile(self.toQuanrantine,'a') as zipp:
+                            zipp.setpassword(self.password)
                             zipp.write(file,arcname=os.path.basename(file))
                         os.remove(file)
                         print("Move Secussfully:{}".format(os.path.basename(file)))
