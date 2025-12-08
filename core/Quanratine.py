@@ -5,7 +5,7 @@ from core.setting import MalwareDetection
 class Quanrantine(MalwareDetection):
     def __init__(self,path,password='12345'):
         super().__init__(path)
-        self.toQuanrantine=r"D:\Y2\T1\PYTHON FOR CYBER\project\Quarantine.zip"
+        self.toQuanrantine=r"C:\Users\U-ser\Projectfinal\Quarantine.zip"
         self.password=password.encode()
     def Movefile(self):
         Malware=self.check_folder(self.path)
