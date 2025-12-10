@@ -6,8 +6,8 @@ import pyfiglet
 class MalwareDetection:
     def __init__(self, path):
         self.path = path
-        self.virus_hash_file = r"D:\Y2\T1\PYTHON FOR CYBER\Projectstruct\database\virusHash.txt"
-        self.virus_info_file = r"D:\Y2\T1\PYTHON FOR CYBER\Projectstruct\database\virusInfo.txt"
+        self.virus_hash_file = r"C:\Users\U-ser\Projectfinal\database\virusHash.txt"
+        self.virus_info_file = r"C:\Users\U-ser\Projectfinal\database\virusInfo.txt"
         self.maleware = []
         self.file_count = 0
 
