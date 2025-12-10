@@ -47,7 +47,7 @@ Exit – Exit the program.
 project/
 │
 ├── core/
-│   ├── scanner.py        # Scanning functionality
+│   ├── analyzer.py        # Scanning functionality
 │   ├── Quanratine.py     # Quarantine functionality
 │   ├── Removevirus.py    # Removing viruses from quarantine
 │   └── setting.py        # MalwareDetection base class & utility functions
