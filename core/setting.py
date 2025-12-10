@@ -1,5 +1,7 @@
 import os
 import hashlib
+from colorama import Fore,init
+import pyfiglet
 
 class MalwareDetection:
     def __init__(self, path):
@@ -18,10 +20,15 @@ class MalwareDetection:
         return hashes, info
 
     def get_fileHash(self, file_path):
-        with open(file_path, "rb") as f:
-            file = f.read()
-            Hash256 = hashlib.sha256(file).hexdigest()
-        return Hash256
+        try:
+            with open(file_path, "rb") as f:
+                file = f.read()
+                Hash256 = hashlib.sha256(file).hexdigest()
+            return Hash256
+        except Exception as e:
+            print(Fore.RED + f"Cannot read file {file_path}: {e}")
+            return None
+
 
     def check_filevirus(self, file_path):
         virus_hashes,virus_info=self.__virus_database()
@@ -57,3 +64,12 @@ class MalwareDetection:
 
     def count(self):
         return self.file_count
+
+init(autoreset=True)
+
+def display_banner():
+    print(Fore.GREEN + "============================================================================================")
+    print(Fore.BLUE + pyfiglet.figlet_format("             Threat Hunter"))
+    print(Fore.GREEN + "============================================================================================")
+    print(Fore.GREEN + "                           Welcome To My Application")
+    print(Fore.GREEN + "============================================================================================")

@@ -1,5 +1,4 @@
 import os
-import shutil
 import zipfile
 from core.setting import MalwareDetection
 class Quanrantine(MalwareDetection):
@@ -15,10 +14,10 @@ class Quanrantine(MalwareDetection):
                 try:
                     if key=='path':
                         with zipfile.ZipFile(self.toQuanrantine,'a') as zipp:
-                            zipp.setpassword(self.password)
                             zipp.write(file,arcname=os.path.basename(file))
+                            zipp.setpassword(self.password)
                         os.remove(file)
                         print("Move Secussfully:{}".format(os.path.basename(file)))
                 except Exception as e:
-                    print ("Ërror cannot move {}".format(e))
+                    print ("Error cannot move {}".format(e))
 
