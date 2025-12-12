@@ -6,15 +6,11 @@ import pyfiglet
 class MalwareDetection:
     def __init__(self, path):
         self.path = path
-<<<<<<< HEAD
-        self.virus_hash_file = r"D:\Y2\T1\PYTHON FOR CYBER\project\database\virusHash.txt"
-        self.virus_info_file = r"D:\Y2\T1\PYTHON FOR CYBER\project\database\virusInfo.txt"
-=======
-        self.virus_hash_file = r"database\virusHash.txt"
-        self.virus_info_file = r"database\virusInfo.txt"
->>>>>>> 1fd259b38016a7d134a3c9db90ae9ce36bc732b3
+        self.virus_hash_file = r"D:\University\Y2\T1\PYTHON FOR CYBER\project\database\virusHash.txt"
+        self.virus_info_file = r"D:\University\Y2\T1\PYTHON FOR CYBER\project\database\virusInfo.txt"
         self.maleware = []
         self.file_count = 0
+        self.errors =[]
 
 
     def __virus_database(self):
@@ -46,12 +42,20 @@ class MalwareDetection:
     def check_folder(self, path=None):
         if path is None:
             path = self.path
-        if os.path.isfile(path):
-            self.file_count += 1
-            maleware = self.check_filevirus(path)
-            if maleware:
-                self.maleware.append({"path":path,"Maleware":maleware})
+
+        if not os.path.exists(path):
+            print(Fore.RED + f"[Error] Path does not exist: {path}")
+            self.errors.append({"path": path, "error": "Path does not exist"})
             return self.maleware
+        try:
+            if os.path.isfile(path):
+                self.file_count += 1
+                maleware = self.check_filevirus(path)
+                if maleware:
+                    self.maleware.append({"path":path,"Maleware":maleware})
+                return self.maleware
+        except Exception as e:
+            print("Error {}".format(e))
         ListFileFolder=os.listdir(path)
         for i in ListFileFolder:
             JoinFile = os.path.join(path, i)

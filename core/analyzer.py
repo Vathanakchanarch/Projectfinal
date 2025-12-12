@@ -11,8 +11,11 @@ class Scanner(MalwareDetection):
     def scan(self):
         self.ListMaleware=self.check_folder(self.path)
         self.TotalFile=self.count()
-        print("Total file :{}".format(self.TotalFile))
-        print("file Virus:{}".format(self.ListMaleware))
         for i in self.ListMaleware:
             self.Maleware+=1
-        print("File Scan: {}\nFile Virus:{}".format(self.TotalFile,self.Maleware))
+        print("\n========== Scan Result ==========")
+        print(f"Total Files Scanned : {self.TotalFile}")
+        print(f"Detected Malware    : {len(self.ListMaleware)}")
+        print(f"Malware List        : {self.ListMaleware}")
+        print("=================================\n")
+       
