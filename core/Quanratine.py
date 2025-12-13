@@ -6,6 +6,7 @@ class Quanrantine(MalwareDetection):
         super().__init__(path)
         self.toQuanrantine=r"D:\University\Y2\T1\PYTHON FOR CYBER\project\Quarantine.zip"
         self.password=password.encode()
+        
     def Movefile(self):
         Malware=self.check_folder(self.path)
         for i in Malware:
