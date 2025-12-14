@@ -34,6 +34,7 @@ virusHash.txt – contains SHA-256 hashes of known malware.
 virusInfo.txt – contains malware names corresponding to hashes.
 Set the path Quanrantine.zip in core/Quanrantine.py 
 
+---
 
 ## Usage
 Run the main program:
@@ -42,6 +43,8 @@ Scan file – Scan a file or folder for malware.
 Quarantine – Move detected malware to a password-protected ZIP.
 Remove Virus – Remove specific or all quarantined files with password authentication.
 Exit – Exit the program.
+
+---
 
 ## Project Structure
 project/
@@ -62,6 +65,7 @@ project/
 │  
 ├── main.py               # Main program entry point
 └── README.md             # This file
+---
 
 ## Contact
 Chan Archvathanak – vathanak4634@gmail.com
