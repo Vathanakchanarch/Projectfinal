@@ -5,27 +5,37 @@ from colorama import Fore,init
 import pyfiglet
 class RemoveVirus(Quanrantine):
     def __init__(self):
-        # Calls parent constructor, which initializes self.toQuanrantine and self.password
+        # - Inherit from Quanrantine class
+        # - Call parent constructor to get quarantine ZIP path and password
+         # - Create a temporary ZIP file name for safe modification
         super().__init__(None) 
-        self.New_zip = self.toQuanrantine + ".tmp"
+        self.New_zip = self.toQuanrantine + ".tmp"  # Temporary ZIP file
 
+
+
+
+    # - Authenticate user with ZIP password
+    # - Display quarantined files
+    # - Allow user to remove one file or all files
     def Remove(self):
         # --- Authentication Check ---
         input_password = input("Enter the Quarantine ZIP password for authentication: ").encode()
-        
+        # Password authentication
         if input_password != self.password:
             print("Authentication failed! Incorrect password.")
             return 0
         # --------------------------
 
         try:
+            # Open quarantine ZIP and list stored files
             with zipfile.ZipFile(self.toQuanrantine, 'r') as z:
-                # Get list of files. This works even with encrypted files.
+                 # Get all file names inside the ZIP.
                 listfile = z.namelist()
-                
+                # Check if quarantine is empty
                 if len(listfile) < 1:
                     print("Don't have any quarantined files!")
                     return 1
+                 # file name list
                 files = [n.strip() for n in listfile]
             
         except FileNotFoundError:
@@ -38,17 +48,17 @@ class RemoveVirus(Quanrantine):
             print(f"An unexpected error occurred during file access: {e}")
             return 0
 
-
+        # Display quarantined virus files
         print("Files virus:")
         for index, i in enumerate(files):
             if index == 0 :
                 continue
             print(Fore.RED + "{0}. {1}".format(index,i)) 
-            
+        # Show removal options   
         print(Fore.GREEN + "     1. Remove specific file:")
         print(Fore.GREEN + "     2. Remove all:")
         option = input("Enter your option: ")
-
+        # Remove a specific file from quarantine
         if option == "1":
             try:
                 # Get file number from user
@@ -66,7 +76,7 @@ class RemoveVirus(Quanrantine):
                                     # Use the stored password to read the encrypted content
                                     file_content = z_in.read(i, pwd=self.password)
                                     z_out.writestr(i, file_content)
-                                    
+                     # Replace old ZIP with new ZIP                
                     os.remove(self.toQuanrantine)
                     os.rename(self.New_zip, self.toQuanrantine)
                     print(f"Successfully removed: {delete_file}")
@@ -76,7 +86,7 @@ class RemoveVirus(Quanrantine):
                 print("Invalid input. Please enter a number.")
             except Exception as e:
                 print(f"Error during file removal: {e}")
-                
+         # Remove all quarantined files       
         elif option == '2':
             # Remove all files by overwriting the zip with an empty one
             try:
