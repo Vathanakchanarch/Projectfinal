@@ -11,6 +11,7 @@ class Quanrantine(MalwareDetection):
         self.toQuanrantine=r"D:\University\Y2\T1\PYTHON FOR CYBER\project\Quarantine.zip"
         # Encode password for ZIP
         self.password=password.encode()
+<<<<<<< HEAD
 
 
 
@@ -19,6 +20,9 @@ class Quanrantine(MalwareDetection):
     #   • Add it to the quarantine ZIP
     #   • Protect the ZIP with a password
     #   • Remove the original infected file from the system
+=======
+        
+>>>>>>> d10fb13b5f307c55009bcc694fc03546c34bf105
     def Movefile(self):
          # Scan folder and get list of detected malware
         Malware=self.check_folder(self.path)
