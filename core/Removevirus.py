@@ -51,9 +51,7 @@ class RemoveVirus(Quanrantine):
         # Display quarantined virus files
         print("Files virus:")
         for index, i in enumerate(files):
-            if index == 0 :
-                continue
-            print(Fore.RED + "{0}. {1}".format(index,i)) 
+            print(Fore.RED + "{0}. {1}".format(index+1,i)) 
         # Show removal options   
         print(Fore.GREEN + "     1. Remove specific file:")
         print(Fore.GREEN + "     2. Remove all:")
